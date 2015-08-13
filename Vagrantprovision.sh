@@ -43,10 +43,10 @@ echo "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2" | debconf
 DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes phpmyadmin > /dev/null 2>&1
 
 
-#Allow no password in phpmyadmin
+# Autologin in phpmyadmin
 sed -i 's/if (!empty($dbname)) {/if (!empty($dbname)) { $cfg['Servers'][$i]['AllowNoPassword'] = true;/' /etc/phpmyadmin/config.inc.php
-
-#ln -fs /usr/share/phpmyadmin /var/www
+sed -i "s|// \$cfg\['Servers'\]\[\$i\]\['AllowNoPassword'\] = TRUE;|   \$cfg['Servers'][\$i]['AllowNoPassword'] = TRUE;|" /etc/phpmyadmin/config.inc.php
+sed -i "s|\$cfg\['Servers'\]\[\$i\]\['auth_type'\] = 'cookie';|\$cfg\['Servers'\]\[\$i\]\['auth_type'\] = 'config';\$cfg\['Servers'\]\[\$i\]\['user'\] = 'root';\$cfg\['Servers'\]\[\$i\]\['password'\] = '';|" /etc/phpmyadmin/config.inc.php
 
 
 

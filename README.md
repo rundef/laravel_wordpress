@@ -1,3 +1,3 @@
-# Using Laravel 5 within WordPress (and the other way around)
+# Using Laravel 5 within WordPress : Creating the backend
 
-[Tutorial 1 : Creating the backend](http://rundef.com/using-laravel-within-wordpress-creating-backend)
+[View the article here](http://rundef.com/using-laravel-within-wordpress-backend)

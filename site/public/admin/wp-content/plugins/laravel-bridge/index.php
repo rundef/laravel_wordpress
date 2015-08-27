@@ -25,9 +25,9 @@ function modify_cms_menus() {
 
 
 	
-	add_menu_page('Events', 'Events', 'edit_posts', 'laravel-bridge/crud/events.php', '', 'dashicons-calendar-alt', 100 );
-    add_submenu_page('laravel-bridge/crud/events.php', 'Categories', 'Categories', 'edit_posts', 'laravel-bridge/crud/eventscategories.php' );
-    add_submenu_page('laravel-bridge/crud/events.php', 'Medias', 'Medias', 'edit_posts', 'laravel-bridge/crud/eventsmedias.php' );
+	add_menu_page('Events', 'Events', 'edit_posts', 'laravel-bridge/crud.php?object=events', '', 'dashicons-calendar-alt', 100 );
+    add_submenu_page('laravel-bridge/crud.php?object=events', 'Categories', 'Categories', 'edit_posts', 'laravel-bridge/crud.php?object=eventscategories' );
+    add_submenu_page('laravel-bridge/crud.php?object=events', 'Medias', 'Medias', 'edit_posts', 'laravel-bridge/crud.php?object=eventsmedias' );
 }
 
 

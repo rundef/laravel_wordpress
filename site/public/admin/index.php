@@ -1,3 +1,3 @@
-<?php
-header("Location: ./wp-admin");
+<?php 
+header("Location: ./wp-admin"); 
 exit();

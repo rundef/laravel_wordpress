@@ -1,3 +1,6 @@
 <IfModule mod_rewrite.c>
-	RewriteEngine Off
+    RewriteEngine Off
 </IfModule>
+# BEGIN WordPress
+
+# END WordPress

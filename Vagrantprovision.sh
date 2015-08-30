@@ -18,9 +18,9 @@ ln -sf /usr/share/zoneinfo/Canada/Eastern /etc/localtime
 
 
 echo -e "\n--- Installing base packages ---\n"
-apt-get -y install vim curl build-essential python-software-properties git > /dev/null 2>&1
+apt-get -y install vim curl build-essential python-software-properties git unzip > /dev/null 2>&1
 
-add-apt-repository ppa:ondrej/php5 > /dev/null 2>&1
+add-apt-repository ppa:ondrej/php5-5.6 > /dev/null 2>&1
 add-apt-repository ppa:chris-lea/node.js > /dev/null 2>&1
 
 apt-get -qq update
@@ -73,7 +73,13 @@ sed -i "s/display_errors = .*/display_errors = On/" /etc/php5/apache2/php.ini
 
 echo "<VirtualHost *:80>
     ServerName site.vagrant
-    DocumentRoot \"/var/www/site/public\"
+    DocumentRoot \"/home/vagrant/site/public\"
+
+    <Directory /home/vagrant/site/public>
+        Options Indexes FollowSymLinks
+	    AllowOverride All
+	    Require all granted
+    </Directory>
 </VirtualHost>" > /etc/apache2/sites-available/site.vagrant.conf
 a2ensite site.vagrant > /dev/null 2>&1
 

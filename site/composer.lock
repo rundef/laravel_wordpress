@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5c6026b96e6fa11a641b51a6ba976f5e",
+    "hash": "43db7232fa58de90df8301d372fee971",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -360,6 +360,56 @@
                 "tokenizer"
             ],
             "time": "2015-03-11 20:06:43"
+        },
+        {
+            "name": "jgrossi/corcel",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rundef/corcel.git",
+                "reference": "9612b8067a52c5cc7cafecd8f24905cbf07afb4c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rundef/corcel/zipball/9612b8067a52c5cc7cafecd8f24905cbf07afb4c",
+                "reference": "9612b8067a52c5cc7cafecd8f24905cbf07afb4c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "*",
+                "php": ">=5.3.0"
+            },
+            "replace": {
+                "juniorgrossi/corcel": "self.version"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.2.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Corcel": "src/"
+                },
+                "classmap": [
+                    "models"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Junior Grossi",
+                    "email": "juniorgro@gmail.com",
+                    "homepage": "http://grossi.io"
+                }
+            ],
+            "description": "Wrappers to collect data from Wordpress databases",
+            "homepage": "http://github.com/jgrossi/corcel",
+            "support": {
+                "source": "https://github.com/rundef/corcel/tree/master"
+            },
+            "time": "2015-08-17 21:39:03"
         },
         {
             "name": "laravel/framework",
@@ -2924,7 +2974,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "jgrossi/corcel": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

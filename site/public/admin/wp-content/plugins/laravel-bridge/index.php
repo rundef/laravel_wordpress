@@ -11,6 +11,12 @@ if (!defined('ABSPATH')) {
 	die('Access denied.');
 }
 
+require_once __DIR__.'/init-laravel.php';
+
+function load_cms_events() {
+	init_laravel('/cms/events');
+}
+
 function modify_cms_menus() {
 	//remove_menu_page( 'index.php' );                  //Dashboard
 	//remove_menu_page( 'edit.php' );                   //Posts
@@ -25,11 +31,9 @@ function modify_cms_menus() {
 
 
 	
-	add_menu_page('Events', 'Events', 'edit_posts', 'laravel-bridge/crud.php?object=events', '', 'dashicons-calendar-alt', 100 );
-    add_submenu_page('laravel-bridge/crud.php?object=events', 'Categories', 'Categories', 'edit_posts', 'laravel-bridge/crud.php?object=eventscategories' );
-    add_submenu_page('laravel-bridge/crud.php?object=events', 'Medias', 'Medias', 'edit_posts', 'laravel-bridge/crud.php?object=eventsmedias' );
+	add_menu_page('Events', 'Events', 'edit_posts', 'cms_events', 'load_cms_events', 'dashicons-calendar-alt', 100 );
+    //add_submenu_page('laravel-bridge/crud.php?object=events', 'Categories', 'Categories', 'edit_posts', 'laravel-bridge/crud.php?object=eventscategories' );
 }
-
 
 
 

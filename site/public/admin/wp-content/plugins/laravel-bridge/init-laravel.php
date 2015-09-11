@@ -1,6 +1,6 @@
 <?php
 function init_laravel($defaultUri) {
-	$dir = __DIR__.'/../../../../';
+	$dir = __DIR__.'/../../../../../';
 	require $dir.'bootstrap/autoload.php';
 
 	$app = require_once $dir.'bootstrap/app.php';
@@ -40,7 +40,7 @@ function init_laravel($defaultUri) {
 
 
 function crud_url($object, $uri, $vars = []) {
-	$url = 'admin.php?page=' . urlencode('laravel-bridge/crud.php')  . '&object=' . urlencode($object) . '&path=' . urlencode('/'.$uri)
+	$url = 'admin.php?page=cms_' . $object  . '&path=' . urlencode('/'.$uri);
 	foreach($vars as $name => $value) {
 		$url .= '&'.$name.'='.urlencode($value);
 	}

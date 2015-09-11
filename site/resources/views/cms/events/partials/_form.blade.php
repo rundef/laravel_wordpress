@@ -67,7 +67,7 @@
 
 
     <div class="postbox">
-        <h3 class="hndle"><span>Visibilité</span></h3>
+        <h3 class="hndle"><span>Visibility</span></h3>
         <div class="inside">
             <div class="form-group">
                 {!! Form::label('active', 'Public', ['class' => 'control-label', 'style' => 'margin-top:3px']) !!}

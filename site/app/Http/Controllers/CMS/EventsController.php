@@ -36,7 +36,7 @@ class EventsController extends BaseCrudController
 
 
         if(isset($search[0]))
-            $events = Event::where('title', 'LIKE', '%'.$search.'%')->orWhere('title', 'LIKE', '%'.$search.'%');
+            $events = Event::where('name', 'LIKE', '%'.$search.'%');
         else if(!is_null($status) && isset($all_status[$status]))
             $events = $all_status[$status]['query'];
         else {

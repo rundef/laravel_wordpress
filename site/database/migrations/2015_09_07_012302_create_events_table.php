@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEventTable extends Migration
+class CreateEventsTable extends Migration
 {
     public function up()
     {
@@ -17,9 +17,6 @@ class CreateEventTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-
-        DB::statement('ALTER TABLE events ADD FULLTEXT full_name(name)');
-        DB::statement('ALTER TABLE events ADD FULLTEXT full_description(description)');
     }
 
     public function down()

@@ -15,15 +15,6 @@
 				$('#confirmDelete').find('.modal-footer #confirm').on('click', function(){
 					$(this).data('form').submit();
 				});
-
-
-				domainName = "{{ url('') }}";
-				page = "{{ $_REQUEST['page'] }}";
-				$('.pagination-links a:not(.disabled)').each(function (index, el) {
-					linkPath = el.href.substring(domainName.length);
-					newLocation = domainName + "/admin/wp-admin/admin.php?page=" + encodeURIComponent(page) + "&path=" + encodeURIComponent(linkPath);
-					el.href = newLocation;
-				});
 			});
 		})(jQuery);
 	</script>
@@ -127,7 +118,11 @@
 							<td><span class="glyphicon glyphicon-{{ $event->active ? 'ok' : 'remove' }}"></span></td>
 
 							<td>
-								From {{ strftime('%e %b %Y', strtotime($event->start_date)) }} to {{ strftime('%e %b %Y', strtotime($event->end_date)) }}
+								@if($event->start_date == $event->end_date)
+									On {{ strftime('%b %e %Y', strtotime($event->start_date)) }}
+								@else
+									From {{ strftime('%b %e %Y', strtotime($event->start_date)) }} to {{ strftime('%b %e %Y', strtotime($event->end_date)) }}
+								@endif
 							</td>
 						</tr>
 					@endforeach

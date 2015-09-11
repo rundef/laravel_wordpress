@@ -3,7 +3,9 @@
 [View the article here](http://rundef.com/using-laravel-within-wordpress-backend)
 
 
-AS you can see below, our Laravel-generated admin pages are fully integrated within WordPress.
+
+
+As you can see below, our Laravel-generated admin pages are fully integrated within WordPress.
 
 It looks pretty WordPress-ish, doesn't it ? :)
 

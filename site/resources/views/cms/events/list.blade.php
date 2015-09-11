@@ -41,7 +41,7 @@
 			@foreach($all_status as $key => $st)
 				<li>
 					<a href="{{ crud_url('events', 'cms/events/filter', ['status' => $key]) }}" @if($status == $key) class="current" @endif>{!! $st['label'] !!} 
-					<span class="count">({{ $st['query']->count() }})</span></a>
+					<span class="count">({{ $st['count'] }})</span></a>
 					@if($i < count($all_status))
 						|
 					@endif
@@ -62,7 +62,7 @@
 
 			<div class="tablenav top">
 				<div class="tablenav-pages">
-					@include('cms.common.pagination', ['paginator' => $events])
+					@include('cms.common.pagination', ['paginator' => $paginator])
 				</div>
 			</div>
 		</form>
@@ -135,7 +135,7 @@
 					<input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
 					<div class="tablenav-pages">
-						@include('cms.common.pagination', ['paginator' => $events])
+						@include('cms.common.pagination', ['paginator' => $paginator])
 					</div>
 				</form>
 			</div>

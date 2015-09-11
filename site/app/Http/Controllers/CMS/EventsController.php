@@ -10,11 +10,7 @@ use Illuminate\Support\Facades\File;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;
-use App\Models\Tag;
-use App\Models\Ambience;
-use App\Models\EventTag;
-use App\Models\EventMedia;
-use App\Models\EventAmbience;
+use App\CMSPaginator;
 
 use Illuminate\Pagination\Paginator;
 
@@ -33,6 +29,10 @@ class EventsController extends BaseCrudController
             'to_come'       => ['label' => 'To come',       'query' => Event::where('start_date', '>', $today) ],
         ]);
 
+        foreach($all_status as $k => $v) {
+            $all_status[$k]['count'] = $v['query']->count();
+        }
+
 
 
         if(isset($search[0]))
@@ -45,11 +45,16 @@ class EventsController extends BaseCrudController
         }
 
 
+        $totalItems = $events->count();
         $events = $events->orderBy('start_date', 'DESC')->paginate($this->perPage);
         
+        $paginator = new CMSPaginator($events->toArray(), $totalItems, $this->perPage);
+        $paginator->setPageAlias('events');
+        $paginator->make();
 
         return view('cms.events.list')
                     ->withEvents($events)
+                    ->withPaginator($paginator)
                     ->withAllStatus($all_status)
                     ->withStatus($status);
     }
@@ -67,7 +72,7 @@ class EventsController extends BaseCrudController
 
         if(Input::has('paged')) {
             $currentPage = $differentSearch ? 1 : Input::get('paged');
-            Paginator::currentPageResolver(function() use ($currentPage) {
+            CMSPaginator::currentPageResolver(function() use ($currentPage) {
                 return $currentPage;
             });
         }

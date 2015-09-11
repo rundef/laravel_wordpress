@@ -13,7 +13,7 @@ class WordpressAuth
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $role)
     {
         if(!function_exists('is_user_logged_in') || !is_user_logged_in()) {
             if(!is_null($role)) {

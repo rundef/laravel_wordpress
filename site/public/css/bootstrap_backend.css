@@ -884,6 +884,10 @@
 *:after {
   box-sizing: border-box;
 }
+span,
+a {
+  box-sizing: initial !important;
+}
 /*
 input,
 button,

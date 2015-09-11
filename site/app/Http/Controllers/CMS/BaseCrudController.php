@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 
 abstract class BaseCrudController extends Controller
 {
-    protected $perPage = 1;
+    protected $perPage = 15;
 
 
     abstract protected function getPageAlias();

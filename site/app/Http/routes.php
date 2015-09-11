@@ -30,7 +30,7 @@ Route::group(['middleware' => 'auth.wordpress:administrator', 'namespace' => 'CM
         Route::post('/create', 'EventsController@postCreate');
         Route::get('/{id}/edit', 'EventsController@getEdit');
         Route::post('/{id}/edit', 'EventsController@postEdit');
-        Route::post('/{id}/delete', 'EventsController@postDelete');
+        Route::any('/{id}/delete', 'EventsController@postDelete');
         Route::get('/{id}/untrash', 'EventsController@untrash');
     });
 });

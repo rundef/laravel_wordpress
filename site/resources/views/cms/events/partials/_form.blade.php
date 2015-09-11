@@ -40,8 +40,41 @@
 
 
 <div class="col-xs-3">
+    <div class="postbox" id="submitdiv">
+        <h3 class="hndle"><span>Publish</span></h3>
+        <div class="inside">
+            <div id="submitpost" class="submitbox">
+                <div id="minor-publishing">
+                    <div id="misc-publishing-actions">
+                        <div class="misc-pub-section misc-pub-visibility" id="visibility">
+                            Visibility: 
+                            <select name="active" id="active" class="form-control pull-right">
+                                <option value="0">Private</option>
+                                <option value="1" {{ !isset($event) || $event->active ? 'selected="1' : '' }}>Public</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="major-publishing-actions">
+                    @if(isset($event) && !$event->trashed())
+                        <div id="delete-action">
+                            <a class="submitdelete deletion" href="{{ crud_url('events', 'cms/event/'.$event->id.'/delete') }}">Move to Trash</a>
+                        </div>
+                    @endif
+
+                    <div id="publishing-action">
+                        <input type="submit" class="button button-primary button-large" id="publish" value="{{ isset($event) ? 'Update' : 'Publish' }}">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="postbox">
-        <h3 class="hndle"><span>Informations</span></h3>
+        <h3 class="hndle"><span>Event dates</span></h3>
         <div class="inside">
             <div class="form-group{{ $errors->has('start_date') ? ' has-error' : '' }}">
                 {!! Form::label('start_date', 'Start : *', ['class' => 'control-label pull-left']) !!}
@@ -53,26 +86,6 @@
                 {!! Form::label('end_date', 'End : *', ['class' => 'control-label pull-left']) !!}
                 {!! Form::text('end_date', null, ['class' => 'form-control date-picker pull-right', 'maxlength' => '10']) !!}
                 <div class="clear"></div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="postbox">
-        <h3 class="hndle"><span>Publish</span></h3>
-        <div class="inside">
-            <input type="submit" class="button button-primary button-large" value="Publish">
-        </div>
-    </div>
-
-
-    <div class="postbox">
-        <h3 class="hndle"><span>Visibility</span></h3>
-        <div class="inside">
-            <div class="form-group">
-                {!! Form::label('active', 'Public', ['class' => 'control-label', 'style' => 'margin-top:3px']) !!}
-                {!! Form::hidden('active', 0, ['id' => null]) !!}
-                {!! Form::checkbox('active', 1, null, ['class' => 'form-control']) !!}
             </div>
         </div>
     </div>

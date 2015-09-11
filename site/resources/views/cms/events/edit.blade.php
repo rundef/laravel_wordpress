@@ -25,9 +25,11 @@
 		<h2>Edit an event</h2>
 
 		<div id="entity-edit-container">
-			{!! Form::model($event, ['method' => 'POST', 'url' => crud_url('events', 'cms/event/'.$event->id.'/edit')]) !!}
-		        @include('cms/events/partials/_form', ['event' => $event])
-		    {!! Form::close() !!}
+			<div id="post-body">
+				{!! Form::model($event, ['method' => 'POST', 'url' => crud_url('events', 'cms/event/'.$event->id.'/edit')]) !!}
+			        @include('cms/events/partials/_form', ['event' => $event])
+			    {!! Form::close() !!}
+		    </div>
 		</div>
 	</div>
 @endsection

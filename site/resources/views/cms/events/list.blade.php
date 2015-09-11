@@ -75,7 +75,7 @@
 				<thead>
 					<tr>
 						<th>Name</th>
-						<th>Visibility</th>
+						<th>Visible ?</th>
 						<th>Date</th>
 					</tr>
 				</thead>
@@ -99,14 +99,14 @@
 								<div class="row-actions">
 									@if($event->trashed())
 										<span class="untrash">
-											<a href="{{ crud_url('events', 'cms/event/'.$event->id.'/untrash') }}" title="Undelete this item">Undelete</a>
+											<a href="{{ crud_url('events', 'cms/event/'.$event->id.'/untrash') }}" title="Restore this item">Restore</a>
 										</span>
 									@else
 										<span class="edit">
 											<a href="{{ crud_url('events', 'cms/event/'.$event->id.'/edit') }}" title="Edit this item">Edit</a> | 
 										</span>
 										<span class="trash">
-											<a class="submitdelete" title="Delete this item" href="javascript:;" data-toggle="modal" data-target="#confirmDelete">Delete</a>
+											<a class="submitdelete" title="Move this item to the Trash" href="javascript:;" data-toggle="modal" data-target="#confirmDelete">Trash</a>
 										</span>
 									@endif
 								</div>

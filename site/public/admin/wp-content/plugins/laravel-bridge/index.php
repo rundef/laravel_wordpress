@@ -47,5 +47,19 @@ function add_custom_css() {
 }
 
 
+
+function tweaked_admin_bar() {
+	global $wp_admin_bar;
+	
+	$wp_admin_bar->add_menu([
+        'parent'   => 'new-content',
+        'id'       => 'new-event',
+        'title'    => __( 'Event' ),
+        'href'     => 'admin.php?page=cms_events&path='.urlencode('/cms/event/create')
+    ]);
+}
+
+
 add_action('admin_menu', 'modify_cms_menus');
 add_action('admin_head', 'add_custom_css');
+add_action('wp_before_admin_bar_render', 'tweaked_admin_bar'); 

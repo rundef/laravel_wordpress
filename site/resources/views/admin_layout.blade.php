@@ -1,5 +1,6 @@
 @section('scripts')
 	<link rel="stylesheet" href="{{ URL::to('css/bootstrap_backend.css') }}">
+	<link rel="stylesheet" href="{{ URL::to('css/cms.css') }}">
 	<script src="{{ URL::to('js/bootstrap.min.js') }}"></script>
 
 	<link href="{{ URL::to('css/bootstrap-datepicker.css') }}" rel="stylesheet" type="text/css">

@@ -102,7 +102,7 @@ class EventsController extends BaseCrudController
         $event->description = stripslashes($event->description);
         $event->save();
 
-        return redirect($this->getListingUrl())->withMessage('The event was successfully created');
+        return redirect($this->getListingUrl())->withMessage('Event created.');
     }
 
 
@@ -123,7 +123,7 @@ class EventsController extends BaseCrudController
         $event->description = stripslashes($event->description);
         $event->save();
 
-        return redirect($this->getListingUrl())->withMessage('The event was successfully updated');
+        return redirect($this->getListingUrl())->withMessage('Event updated.');
     }
     
 
@@ -133,7 +133,7 @@ class EventsController extends BaseCrudController
         $event = $this->getObjectFromId($id);
         $event->delete();
 
-        return redirect($this->getListingUrl())->withMessage('The event was successfully deleted');
+        return redirect($this->getListingUrl())->withMessage('1 event moved to the Trash.');
     }
 
 
@@ -141,7 +141,7 @@ class EventsController extends BaseCrudController
         $event = Event::withTrashed()->whereId($id)->first();
         $event->restore();
 
-        return redirect($this->getListingUrl())->withMessage('The event was successfully undeleted');
+        return redirect($this->getListingUrl())->withMessage('1 event restored from the Trash.');
     }
 
 

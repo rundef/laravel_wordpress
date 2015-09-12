@@ -16,8 +16,6 @@ Route::get('/', function () {
 });
 
 
-
-
 Route::group(['middleware' => 'auth.wordpress:administrator', 'namespace' => 'CMS', 'prefix' => 'cms'], 
     function () {
     

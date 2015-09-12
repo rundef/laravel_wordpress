@@ -98,7 +98,7 @@ echo -e "\n--- Installing Composer/NodeJS/NPM ---\n"
 curl --silent https://getcomposer.org/installer | php > /dev/null 2>&1
 mv composer.phar /usr/local/bin/composer
 
-curl --silent --location https://deb.nodesource.com/setup_0.12 | sudo bash -
+curl --silent --location https://deb.nodesource.com/setup_0.12 | bash > /dev/null 2>&1
 apt-get -y install nodejs > /dev/null 2>&1
 
 curl --silent https://www.npmjs.org/install.sh | sh > /dev/null 2>&1

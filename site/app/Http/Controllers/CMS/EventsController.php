@@ -46,7 +46,7 @@ class EventsController extends BaseCrudController
 
 
         $totalItems = $events->count();
-        $events = $events->orderBy('start_date', 'DESC')->paginate($this->perPage);
+        $events = $events->orderBy('end_date', 'DESC')->paginate($this->perPage);
         
         $paginator = new CMSPaginator($events->toArray(), $totalItems, $this->perPage);
         $paginator->setPageAlias('events');

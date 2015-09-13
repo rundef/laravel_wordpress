@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 
-Route::group(['middleware' => 'auth.wordpress:administrator', 'namespace' => 'CMS', 'prefix' => 'cms'], 
+Route::group(['middleware' => 'auth.wordpress:,edit_cms_events', 'namespace' => 'CMS', 'prefix' => 'cms'], 
     function () {
     
     Route::get('/events', 'EventsController@getList');

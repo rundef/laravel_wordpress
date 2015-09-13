@@ -13,17 +13,17 @@ class WordpressAuth
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $role = '', $capability = '')
     {
-        if(!function_exists('is_user_logged_in') || !is_user_logged_in()) {
-            if(!is_null($role)) {
-                if(!function_exists('get_current_user_role') || !user_has_role($role))
-                    return response('Unauthorized.', 401);
-            }
-            else
+        if(!function_exists('is_user_logged_in') || !is_user_logged_in())
+            return response('Unauthorized.', 401);
+        else {
+            if(!empty($role) && !current_user_can($role))
+                return response('Unauthorized.', 401);
+            if(!empty($capability) && !current_user_can($capability))
                 return response('Unauthorized.', 401);
         }
-        
+
         return $next($request);
     }
 }

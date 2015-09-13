@@ -13,6 +13,15 @@ if (!defined('ABSPATH')) {
 
 require_once __DIR__.'/init-laravel.php';
 
+
+
+
+function wordpress_init() {
+    $role = get_role('administrator');
+    $role->add_cap('edit_cms_events');
+}
+
+
 function load_cms_events() {
 	init_laravel('/cms/events');
 }
@@ -31,8 +40,9 @@ function modify_cms_menus() {
 
 
 	
-	add_menu_page('Events', 'Events', 'edit_posts', 'cms_events', 'load_cms_events', 'dashicons-calendar-alt', 100 );
-    //add_submenu_page('laravel-bridge/crud.php?object=events', 'Categories', 'Categories', 'edit_posts', 'laravel-bridge/crud.php?object=eventscategories' );
+	if (current_user_can('edit_cms_events')) {
+		add_menu_page('Events', 'Events', 'edit_posts', 'cms_events', 'load_cms_events', 'dashicons-calendar-alt', 100);
+	}
 }
 
 
@@ -60,6 +70,7 @@ function tweaked_admin_bar() {
 }
 
 
+add_action('admin_init', 'wordpress_init');
 add_action('admin_menu', 'modify_cms_menus');
 add_action('admin_head', 'add_custom_css');
 add_action('wp_before_admin_bar_render', 'tweaked_admin_bar'); 

@@ -1,15 +1,4 @@
-# Using Laravel 5 within WordPress : Creating the backend
+# Using WordPress within Laravel 5 : Creating the frontend
 
-[View the article here](http://rundef.com/using-laravel-within-wordpress-backend)
+[View the article here](http://rundef.com/using-wordpress-within-laravel-frontend)
 
-
-
-
-As you can see below, our Laravel-generated admin pages are fully integrated within WordPress.
-
-It looks pretty WordPress-ish, doesn't it ? :)
-
-
-![Laravel + WordPress](http://rundef.com/uploads/github/laravel_wordpress-1.png)
-
-![Laravel + WordPress](http://rundef.com/uploads/github/laravel_wordpress-2.png)

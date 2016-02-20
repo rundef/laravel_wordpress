@@ -6,6 +6,7 @@
 
 
 As you can see below, our Laravel-generated admin pages are fully integrated within WordPress.
+
 It looks pretty WordPress-ish, doesn't it ?
 
 

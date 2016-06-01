@@ -10,6 +10,6 @@ As you can see below, our Laravel-generated admin pages are fully integrated wit
 It looks pretty WordPress-ish, doesn't it ?
 
 
-![Laravel + WordPress](http://rundef.com/uploads/github/laravel_wordpress-1.png)
+![Laravel + WordPress](http://rundef.com/img/github/laravel_wordpress-1.png)
 
-![Laravel + WordPress](http://rundef.com/uploads/github/laravel_wordpress-2.png)
+![Laravel + WordPress](http://rundef.com/img/github/laravel_wordpress-2.png)

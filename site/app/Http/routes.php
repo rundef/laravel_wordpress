@@ -11,9 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::group(['namespace' => 'Site'], 
+    function () {
+    
+    Route::auth();
+    Route::get('/', 'MainController@index');
+    Route::get('/home', 'MainController@index');
 });
+
 
 
 Route::group(['middleware' => 'auth.wordpress:,edit_cms_events', 'namespace' => 'CMS', 'prefix' => 'cms'], 
